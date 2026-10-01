@@ -1,4 +1,3 @@
-getgenv().SCRIPT_KEY = "RSC_-5a32ec53-afe9-41d6-9888-fba00f32804b"
 -- This file was protected using Luraph Obfuscator v15.0 [https://lura.ph/]
 return setmetatable(
     {
