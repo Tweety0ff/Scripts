@@ -1,0 +1,723 @@
+local aa
+local function getService()
+    aa.Parent = game:GetService("CoreGui")
+end
+local ab
+local function processItems()
+    local a = aa
+    if aa then
+        a = aa.Parent
+    end
+    if a then
+        ab.Rotation = (ab.Rotation + 1) % 360
+        task.wait(0.03)
+        while true do
+            if aa and aa.Parent then
+                ab.Rotation = (ab.Rotation + 1) % 360
+                task.wait(0.03)
+                continue
+            end
+            break
+        end
+    end
+end
+local ac, ad
+local function processItems2()
+    local a = aa
+    if aa then
+        a = aa.Parent
+    end
+    local b, c, d
+    if a then
+        c = Enum.EasingStyle.Quad
+        d = Enum.EasingDirection.InOut
+        b = TweenInfo.new(1.8, c, d)
+        local e = {}
+        e.Offset = Vector2.new(2, 0)
+        a = ac:Create(ad, b, e)
+        a:Play()
+        local f = {}
+        while true do
+            a.Completed:Wait()
+            task.wait(1.5)
+            ad.Offset = Vector2.new(-1, 0)
+            a = aa and aa.Parent
+            if a then
+                c = Enum.EasingStyle.Quad
+                d = Enum.EasingDirection.InOut
+                b = TweenInfo.new(1.8, c, d)
+                f.Offset = Vector2.new(2, 0)
+                a = ac:Create(ad, b, f)
+                a:Play()
+                continue
+            end
+            break
+        end
+        return a
+    else
+        return
+    end
+end
+local ae, af, ag, ah
+local function onInputBegan(a)
+    local function onChanged()
+        local c = Enum.UserInputState.End
+        if a.UserInputState == c then
+            af = false
+        end
+    end
+    local mouseButton1 = Enum.UserInputType.MouseButton1
+    local b = a.UserInputType == mouseButton1
+    if not b then
+        mouseButton1 = Enum.UserInputType.Touch
+        b = a.UserInputType == mouseButton1
+    end
+    if b then
+        af = true
+        ag = a.Position
+        ah = ae.Position
+        a.Changed:Connect(onChanged)
+        return a
+    else
+        return
+    end
+end
+local ai
+local function onInputChanged(a)
+    local mouseMovement = Enum.UserInputType.MouseMovement
+    local b = a.UserInputType == mouseMovement
+    if not b then
+        mouseMovement = Enum.UserInputType.Touch
+        b = a.UserInputType == mouseMovement
+    end
+    if b then
+        ai = a
+    end
+end
+local function onInputChanged2(a)
+    local b, scale, c, scale2, d, y
+    if a == ai and af then
+        b = a.Position - ag
+        scale = ah.X.Scale
+        d = b.X
+        c = ah.X.Offset + d
+        scale2 = ah.Y.Scale
+        y = b.Y
+        d = ah.Y.Offset + y
+        ae.Position = UDim2.new(scale, c, scale2, d)
+    end
+end
+local function createTextButton(text, a, b, c)
+    local textButton = Instance.new("TextButton")
+    textButton.Size = UDim2.new(0, b, 0, 34)
+    textButton.Position = UDim2.new(0, a, 0, 80)
+    local d = c
+    if c then
+        d = Color3.fromRGB(78, 127, 252)
+    end
+    if not d then
+        d = Color3.fromRGB(16, 18, 26)
+    end
+    textButton.BackgroundColor3 = d
+    d = c
+    if c then
+        d = 0
+    end
+    if not d then
+        d = 0.2
+    end
+    textButton.BackgroundTransparency = d
+    textButton.BorderSizePixel = 0
+    textButton.Text = text
+    d = c
+    if c then
+        d = Color3.fromRGB(255, 255, 255)
+    end
+    if not d then
+        d = Color3.fromRGB(220, 220, 225)
+    end
+    textButton.TextColor3 = d
+    textButton.Font = Enum.Font.GothamBold
+    textButton.TextSize = 13
+    textButton.AutoButtonColor = false
+    textButton.ZIndex = 6
+    textButton.Parent = ae
+    d = Instance.new("UICorner")
+    d.CornerRadius = UDim.new(0, 8)
+    d.Parent = textButton
+    local uIStroke3 = Instance.new("UIStroke")
+    uIStroke3.Thickness = 1
+    local e = c
+    if c then
+        e = Color3.fromRGB(120, 160, 255)
+    end
+    if not e then
+        e = Color3.fromRGB(45, 48, 58)
+    end
+    uIStroke3.Color = e
+    uIStroke3.Transparency = 0.4
+    uIStroke3.Parent = textButton
+    return textButton
+end
+local function createFrame()
+    local frame, a
+    local function backgroundTask3()
+        local b, c, d
+        while true do
+            if frame and frame.Parent then
+                b = 1
+                c = 3
+                d = 1
+                break
+            end
+            return
+        end
+        a.Text = "Loading" .. string.rep(".", b)
+        task.wait(0.4)
+        local __brk1 = false
+        while true do
+            b = b + d
+            if 0 < d then
+                if b + d <= c then
+                    a.Text = "Loading" .. string.rep(".", b)
+                    task.wait(0.4)
+                    continue
+                end
+            elseif c <= b + d then
+                a.Text = "Loading" .. string.rep(".", b)
+                task.wait(0.4)
+                continue
+            end
+            while true do
+                b = frame
+                if b then
+                    c = frame
+                    b = frame.Parent
+                end
+                if b then
+                    b = 1
+                    c = 3
+                    d = 1
+                    break
+                end
+                __brk1 = true
+                break
+            end
+            if __brk1 then
+                break
+            end
+            a.Text = "Loading" .. string.rep(".", b)
+            task.wait(0.4)
+        end
+        return b, c, d
+    end
+    frame = Instance.new("Frame")
+    frame.Size = UDim2.new(1, 0, 1, 0)
+    frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    frame.BackgroundTransparency = 0.55
+    frame.BorderSizePixel = 0
+    frame.ZIndex = 10
+    frame.Parent = aa
+    local frame2 = Instance.new("Frame")
+    a = 132
+    frame2.Size = UDim2.new(0, 360, 0, 132)
+    a = -66
+    frame2.Position = UDim2.new(0.5, -180, 0.5, -66)
+    frame2.BackgroundColor3 = Color3.fromRGB(10, 10, 16)
+    frame2.BackgroundTransparency = 0.05
+    frame2.BorderSizePixel = 0
+    frame2.ClipsDescendants = true
+    frame2.ZIndex = 11
+    frame2.Parent = frame
+    local uICorner3 = Instance.new("UICorner")
+    uICorner3.CornerRadius = UDim.new(0, 12)
+    uICorner3.Parent = frame2
+    local uIStroke4 = Instance.new("UIStroke")
+    uIStroke4.Thickness = 1.2
+    uIStroke4.Transparency = 0.3
+    uIStroke4.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    a = 127
+    uIStroke4.Color = Color3.fromRGB(78, 127, 252)
+    uIStroke4.Parent = frame2
+    local textLabel4 = Instance.new("TextLabel")
+    a = 1
+    textLabel4.Size = UDim2.new(1, -24, 0, 24)
+    a = 0
+    textLabel4.Position = UDim2.new(0, 12, 0, 12)
+    textLabel4.BackgroundTransparency = 1
+    textLabel4.Text = "Injecting script..."
+    a = Enum.Font
+    textLabel4.Font = a.GothamBold
+    textLabel4.TextSize = 14
+    a = 255
+    textLabel4.TextColor3 = Color3.fromRGB(255, 255, 255)
+    a = Enum.TextXAlignment
+    textLabel4.TextXAlignment = a.Left
+    textLabel4.Parent = frame2
+    a = "TextLabel"
+    local textLabel5 = Instance.new("TextLabel")
+    textLabel5.Size = UDim2.new(1, -24, 0, 52)
+    textLabel5.Position = UDim2.new(0, 12, 0, 44)
+    textLabel5.BackgroundTransparency = 1
+    textLabel5.Text = "Disclaimer: loading might take a very long time due to the new version of Luraph — the script has nothing to do with it. Do not close the window or click again."
+    textLabel5.Font = Enum.Font.Gotham
+    textLabel5.TextSize = 11
+    textLabel5.TextColor3 = Color3.fromRGB(160, 165, 185)
+    textLabel5.TextXAlignment = Enum.TextXAlignment.Left
+    textLabel5.TextYAlignment = Enum.TextYAlignment.Top
+    textLabel5.TextWrapped = true
+    textLabel5.Parent = frame2
+    a = Instance.new("TextLabel")
+    a.Size = UDim2.new(1, -24, 0, 20)
+    a.Position = UDim2.new(0, 12, 0, 104)
+    a.BackgroundTransparency = 1
+    a.Text = ""
+    a.Font = Enum.Font.GothamBold
+    a.TextSize = 12
+    a.TextColor3 = Color3.fromRGB(78, 127, 252)
+    a.TextXAlignment = Enum.TextXAlignment.Left
+    a.Parent = frame2
+    task.spawn(backgroundTask3)
+    return frame
+end
+local function connectEvents()
+    local frame3
+    local function onMouseButton1Click()
+        frame3:Destroy()
+    end
+    frame3 = Instance.new("Frame")
+    frame3.Size = UDim2.new(1, 0, 1, 0)
+    frame3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    frame3.BackgroundTransparency = 0.6
+    frame3.BorderSizePixel = 0
+    frame3.ZIndex = 20
+    frame3.Parent = aa
+    local frame4 = Instance.new("Frame")
+    frame4.Size = UDim2.new(0, 380, 0, 190)
+    frame4.Position = UDim2.new(0.5, -190, 0.5, -95)
+    frame4.BackgroundColor3 = Color3.fromRGB(10, 10, 16)
+    frame4.BackgroundTransparency = 0.05
+    frame4.BorderSizePixel = 0
+    frame4.ClipsDescendants = true
+    frame4.ZIndex = 21
+    frame4.Parent = frame3
+    local uICorner4 = Instance.new("UICorner")
+    uICorner4.CornerRadius = UDim.new(0, 12)
+    uICorner4.Parent = frame4
+    local uIStroke5 = Instance.new("UIStroke")
+    uIStroke5.Thickness = 1.2
+    uIStroke5.Transparency = 0.3
+    uIStroke5.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    uIStroke5.Color = Color3.fromRGB(78, 127, 252)
+    uIStroke5.Parent = frame4
+    local imageLabel = Instance.new("ImageLabel")
+    imageLabel.Size = UDim2.new(0, 18, 0, 18)
+    imageLabel.Position = UDim2.new(0, 14, 0, 13)
+    imageLabel.BackgroundTransparency = 1
+    imageLabel.Image = "rbxassetid://6051644163"
+    imageLabel.ImageColor3 = Color3.fromRGB(255, 180, 60)
+    imageLabel.Parent = frame4
+    local textLabel6 = Instance.new("TextLabel")
+    textLabel6.Size = UDim2.new(1, -44, 0, 24)
+    textLabel6.Position = UDim2.new(0, 38, 0, 10)
+    textLabel6.BackgroundTransparency = 1
+    textLabel6.Text = "Disclaimer"
+    textLabel6.Font = Enum.Font.GothamBold
+    textLabel6.TextSize = 15
+    textLabel6.TextColor3 = Color3.fromRGB(255, 255, 255)
+    textLabel6.TextXAlignment = Enum.TextXAlignment.Left
+    textLabel6.Parent = frame4
+    local textLabel7 = Instance.new("TextLabel")
+    textLabel7.Size = UDim2.new(1, -24, 0, 64)
+    textLabel7.Position = UDim2.new(0, 12, 0, 44)
+    textLabel7.BackgroundTransparency = 1
+    textLabel7.Text = "Script injection takes a very long time due to the new version of Luraph. The script has nothing to do with it — be patient and do not restart the injection."
+    textLabel7.Font = Enum.Font.Gotham
+    textLabel7.TextSize = 11
+    textLabel7.TextColor3 = Color3.fromRGB(160, 165, 185)
+    textLabel7.TextXAlignment = Enum.TextXAlignment.Left
+    textLabel7.TextYAlignment = Enum.TextYAlignment.Top
+    textLabel7.TextWrapped = true
+    textLabel7.Parent = frame4
+    local textButton2 = Instance.new("TextButton")
+    textButton2.Size = UDim2.new(1, -24, 0, 34)
+    textButton2.Position = UDim2.new(0, 12, 0, 140)
+    textButton2.BackgroundColor3 = Color3.fromRGB(78, 127, 252)
+    textButton2.BorderSizePixel = 0
+    textButton2.Text = "Understood, continue"
+    textButton2.TextColor3 = Color3.fromRGB(255, 255, 255)
+    textButton2.Font = Enum.Font.GothamBold
+    textButton2.TextSize = 13
+    textButton2.AutoButtonColor = false
+    textButton2.ZIndex = 22
+    textButton2.Parent = frame4
+    local uICorner5 = Instance.new("UICorner")
+    uICorner5.CornerRadius = UDim.new(0, 8)
+    uICorner5.Parent = textButton2
+    local uIStroke6 = Instance.new("UIStroke")
+    uIStroke6.Thickness = 1
+    uIStroke6.Color = Color3.fromRGB(120, 160, 255)
+    uIStroke6.Transparency = 0.4
+    uIStroke6.Parent = textButton2
+    textButton2.MouseButton1Click:Connect(onMouseButton1Click)
+end
+local aj, ak, al
+local function onMouseButton1Click2()
+    local function backgroundTask2()
+        local a = aj
+        local get_key_link = aj.get_key_link
+        local pack = table.pack(get_key_link())
+        if pack[1] then
+            if setclipboard then
+                get_key_link = table.unpack(pack, 1, pack.n)
+                pcall(setclipboard, get_key_link)
+                al.Text = "Link copied!"
+                ak.Text = "Copy link"
+                return get_key_link, a
+            else
+                al.Text = "Link copied!"
+                ak.Text = "Copy link"
+                return table.unpack(pack, 1, pack.n)
+            end
+        else
+            al.Text = "Error: " .. tostring(table.unpack(pack, 2, pack.n))
+            ak.Text = "Retry"
+        end
+        return table.unpack(pack, 1, pack.n)
+    end
+    ak.Text = "Waiting..."
+    task.spawn(backgroundTask2)
+end
+local am, an, ao
+local function onMouseButton1Click3()
+    local a
+    local function backgroundTask()
+        local function tryOperation()
+            return aj.check_key(a)
+        end
+        local b
+        local function destroy()
+            local n = b
+            if b then
+                n = b.Parent
+            end
+            if n then
+                b:Destroy()
+            end
+        end
+        local function httpGet()
+            return game:HttpGet("https://api.jnkie.com/api/v1/luascripts/public/bf5a730ee403c013916652fc998374b2d314992c13a1ba96b496c59c2e6089c1/download")
+        end
+        local c = table.pack(pcall(tryOperation))
+        local d = table.unpack(c, 1, c.n)
+        local e, f, g, h, i, j, k, l, m
+        if not d then
+            al.Text = "Verification error: " .. tostring(table.unpack(c, 2, c.n))
+            an.Text = "Activate"
+            b = true
+            an.Active = true
+            return table.unpack(c, 1, c.n)
+        else
+            e = table.unpack(c, 2, c.n)
+            f = e
+            b = not e
+            if b then
+                b = c[2].error
+                al.Text = "Error: " .. tostring(b)
+                an.Text = "Activate"
+                an.Active = true
+                return table.unpack(c, 1, c.n)
+            else
+                getgenv(table.unpack(c, 5, c.n)).SCRIPT_KEY = a
+                al.Text = "Injecting script..."
+                b = ao(table.unpack(c, 5, c.n))
+                g = destroy
+                i = httpGet
+                c = table.pack(pcall(httpGet))
+                h = table.unpack(c, 1, c.n)
+                if not h then
+                    loadstring(table.unpack(c, 4, c.n))
+                    al.Text = "Loading error: " .. tostring(i)
+                    an.Text = "Activate"
+                    an.Active = true
+                    return d, e, f, b, g, h, i
+                else
+                    i = table.unpack(c, 2, c.n)
+                    k = i
+                    c = table.pack(loadstring(i))
+                    j = table.unpack(c, 1, c.n)
+                    if not j then
+                        pcall(table.unpack(c, 4, c.n))
+                        al.Text = "Compilation error: " .. tostring(k)
+                        an.Text = "Activate"
+                        an.Active = true
+                        return d, e, f, b, g, h, i, j, k
+                    else
+                        j = table.unpack(c, 1, c.n)
+                        m = j
+                        c = table.pack(pcall(j))
+                        l = table.unpack(c, 1, c.n)
+                        if not l then
+                            g(table.unpack(c, 4, c.n))
+                            al.Text = "Script error: " .. tostring(m)
+                            an.Text = "Activate"
+                            an.Active = true
+                        else
+                            g(table.unpack(c, 4, c.n))
+                            aa:Destroy()
+                        end
+                        return d, e, f, b, g, h, i, j, k, l, m
+                    end
+                end
+            end
+        end
+    end
+    a = am.Text
+    a = a:match("^%s*(.-)%s*$")
+    if a == "" then
+        al.Text = "Enter the key!"
+        return
+    else
+        an.Text = "Checking..."
+        an.Active = false
+        task.spawn(backgroundTask)
+        return a
+    end
+end
+ac = game
+local players = game:GetService("Players")
+ac = game:GetService("TweenService")
+local userInputService = game:GetService("UserInputService")
+local localPlayer = players.LocalPlayer
+aa = "PlayerGui"
+aj = localPlayer
+local playerGui = localPlayer:WaitForChild("PlayerGui")
+
+aj = loadstring(game:HttpGet("https://jnkie.com/sdk/library.lua"))()
+aj.service = "PRIME"
+aj.identifier = "1175845"
+aj.provider = "Provider-1"
+
+ae = "ScreenGui"
+aa = Instance.new("ScreenGui")
+aa.Name = "KitiKey"
+aa.IgnoreGuiInset = true
+aa.ResetOnSpawn = false
+aa.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ae = pcall
+pcall(getService)
+ae = not aa.Parent
+if ae then
+    aa.Parent = playerGui
+end
+ae = Instance.new("Frame")
+ab = 360
+ad = 196
+ae.Size = UDim2.new(0, 360, 0, 196)
+ab = -180
+ad = -98
+ae.Position = UDim2.new(0.5, -180, 0.5, -98)
+ab = 8
+ae.BackgroundColor3 = Color3.fromRGB(8, 8, 13)
+ae.BackgroundTransparency = 0.15
+ae.BorderSizePixel = 0
+ae.ClipsDescendants = true
+ae.Parent = aa
+local uICorner = Instance.new("UICorner")
+ab = 0
+uICorner.CornerRadius = UDim.new(0, 12)
+uICorner.Parent = ae
+ab = "UIStroke"
+local uIStroke = Instance.new("UIStroke")
+uIStroke.Thickness = 1.2
+uIStroke.Transparency = 0.35
+uIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+ad = 48
+af = 58
+ab = Color3.fromRGB(45, 48, 58)
+uIStroke.Color = ab
+uIStroke.Parent = ae
+ab = Instance.new("UIGradient")
+local new = ColorSequence.new
+ad = {}
+af = ColorSequenceKeypoint.new
+ai = 0
+ah = 78
+ag = Color3.fromRGB(78, 127, 252)
+af = af(0, ag)
+ai = ColorSequenceKeypoint.new
+ag = 0.5
+ah = Color3.fromRGB(45, 48, 58)
+ai = ai(0.5, ah)
+ah = 1
+am = 252
+ag = ColorSequenceKeypoint.new(1, Color3.fromRGB(78, 127, 252))
+ad[1] = af
+ad[2] = ai
+ad[3] = ag
+ab.Color = new(ad)
+ab.Parent = uIStroke
+ad = "Frame"
+new = Instance.new("Frame")
+af = 1
+ai = 0
+ag = 1
+ah = 0
+new.Size = UDim2.new(1, 0, 1, 0)
+new.BackgroundTransparency = 1
+new.BorderSizePixel = 0
+new.ZIndex = 5
+new.Parent = ae
+af = "UIGradient"
+ad = Instance.new("UIGradient")
+af = ColorSequence.new
+ai = {}
+ah = 0
+am = 252
+ag = ColorSequenceKeypoint.new(0, Color3.fromRGB(78, 127, 252))
+am = 165
+ah = ColorSequenceKeypoint.new(1, Color3.fromRGB(125, 165, 255))
+ai[1] = ag
+ai[2] = ah
+af = af(ai)
+ad.Color = af
+af = NumberSequence.new
+ai = {}
+ah = 0
+ag = NumberSequenceKeypoint.new(0, 1)
+ah = NumberSequenceKeypoint.new(0.5, 0.8)
+local numberSequenceKeypoint = NumberSequenceKeypoint.new(1, 1)
+ai[1] = ag
+ai[2] = ah
+ai[3] = numberSequenceKeypoint
+ad.Transparency = af(ai)
+ad.Rotation = 90
+ai = -1
+ag = 0
+af = Vector2.new(-1, 0)
+ad.Offset = af
+ad.Parent = new
+af = task.spawn
+ai = processItems
+af(processItems)
+af = task.spawn
+ai = processItems2
+af(processItems2)
+af = nil
+ai = nil
+ag = nil
+ah = nil
+ae.InputBegan:Connect(onInputBegan)
+ae.InputChanged:Connect(onInputChanged)
+userInputService.InputChanged:Connect(onInputChanged2)
+numberSequenceKeypoint = Instance.new("ImageLabel")
+am = 16
+numberSequenceKeypoint.Size = UDim2.new(0, 16, 0, 16)
+am = 12
+numberSequenceKeypoint.Position = UDim2.new(0, 12, 0, 12)
+numberSequenceKeypoint.BackgroundTransparency = 1
+numberSequenceKeypoint.Image = "rbxassetid://10734961133"
+am = 127
+numberSequenceKeypoint.ImageColor3 = Color3.fromRGB(78, 127, 252)
+numberSequenceKeypoint.Parent = ae
+local textLabel = Instance.new("TextLabel")
+am = 0
+textLabel.Size = UDim2.new(0, 60, 0, 20)
+am = 0
+textLabel.Position = UDim2.new(0, 34, 0, 9)
+textLabel.BackgroundTransparency = 1
+textLabel.Text = "KITI"
+am = Enum.Font
+textLabel.Font = am.GothamBold
+textLabel.TextSize = 15
+am = 255
+textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+am = Enum.TextXAlignment
+textLabel.TextXAlignment = am.Left
+textLabel.Parent = ae
+am = "TextLabel"
+local textLabel2 = Instance.new("TextLabel")
+ak = 20
+textLabel2.Size = UDim2.new(0, 100, 0, 20)
+ak = 9
+textLabel2.Position = UDim2.new(0, 72, 0, 9)
+textLabel2.BackgroundTransparency = 1
+textLabel2.Text = "• KEY SYSTEM"
+textLabel2.Font = Enum.Font.GothamBold
+textLabel2.TextSize = 12
+textLabel2.TextColor3 = Color3.fromRGB(78, 127, 252)
+am = Enum.TextXAlignment.Left
+textLabel2.TextXAlignment = am
+textLabel2.Parent = ae
+am = Instance.new("TextBox")
+ak = 0
+an = 34
+am.Size = UDim2.new(1, -24, 0, 34)
+ak = 0
+an = 38
+am.Position = UDim2.new(0, 12, 0, 38)
+ak = 22
+am.BackgroundColor3 = Color3.fromRGB(14, 15, 22)
+am.BackgroundTransparency = 0.2
+am.BorderSizePixel = 0
+am.PlaceholderText = "Enter key here..."
+ak = 115
+am.PlaceholderColor3 = Color3.fromRGB(90, 95, 115)
+am.Text = ""
+ak = 235
+am.TextColor3 = Color3.fromRGB(230, 230, 235)
+am.Font = Enum.Font.GothamBold
+am.TextSize = 13
+am.ClearTextOnFocus = false
+am.Parent = ae
+local uICorner2 = Instance.new("UICorner")
+ak = 8
+uICorner2.CornerRadius = UDim.new(0, 8)
+uICorner2.Parent = am
+local uIStroke2 = Instance.new("UIStroke")
+uIStroke2.Thickness = 1
+ak = 35
+an = 38
+al = 50
+uIStroke2.Color = Color3.fromRGB(35, 38, 50)
+uIStroke2.Transparency = 0.3
+uIStroke2.Parent = am
+an = "Get key"
+al = 12
+ao = false
+ak = createTextButton("Get key", 12, 162, false)
+al = "Activate"
+ao = 162
+an = createTextButton("Activate", 186, 162, true)
+al = Instance.new("TextLabel")
+ao = 1
+al.Size = UDim2.new(1, -24, 0, 34)
+ao = 0
+al.Position = UDim2.new(0, 12, 0, 114)
+al.BackgroundTransparency = 1
+al.Text = "Enter the key and click 'Activate'"
+ao = Enum.Font
+al.Font = ao.GothamBold
+al.TextSize = 11
+ao = 160
+al.TextColor3 = Color3.fromRGB(160, 165, 185)
+ao = Enum.TextXAlignment
+al.TextXAlignment = ao.Center
+al.TextWrapped = true
+al.Parent = ae
+ao = "TextLabel"
+local textLabel3 = Instance.new("TextLabel")
+textLabel3.Size = UDim2.new(1, -24, 0, 26)
+textLabel3.Position = UDim2.new(0, 12, 0, 162)
+textLabel3.BackgroundTransparency = 1
+textLabel3.Text = "Disclaimer: injection might take a very long time due to the new version of Luraph — the script has nothing to do with it."
+textLabel3.Font = Enum.Font.Gotham
+textLabel3.TextSize = 10
+textLabel3.TextColor3 = Color3.fromRGB(110, 115, 135)
+textLabel3.TextXAlignment = Enum.TextXAlignment.Center
+textLabel3.TextWrapped = true
+textLabel3.Parent = ae
+ao = createFrame
+ak.MouseButton1Click:Connect(onMouseButton1Click2)
+an.MouseButton1Click:Connect(onMouseButton1Click3)
+connectEvents(select(2, ...))
