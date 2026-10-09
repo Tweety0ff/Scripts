@@ -5,15 +5,15 @@ end
 local varargs = ...
 local v = table.pack(varargs)
 
-if not ce_like_loadstring_fn then
-	if not l_fastload_enabled or not is_from_loader then
-		game:GetService("Players").LocalPlayer:Kick("[Luarmor]: Use the loadstring, do not run this directly")
-		wait(5)
+--if not ce_like_loadstring_fn then
+	--if not l_fastload_enabled or not is_from_loader then
+		--game:GetService("Players").LocalPlayer:Kick("[Luarmor]: Use the loadstring, do not run this directly")
+		--wait(5)
 
-		while true do
-		end
-	end
-end
+		--while true do
+		--end
+	--end
+--end
 
 local str = "?"
 loadstring = ce_like_loadstring_fn or loadstring
@@ -226,7 +226,7 @@ elseif n5 >= 15 and n5 < 21 then
 	tbl5[3] = v11
 	v6 = tbl5[math[v3[fn2("\237\238q\243\0025", 446690230688)]](1, 2)]
 else
-	game:GetService(v3[fn2("\11\19\5\4\2527\137", 10601376556689)])[v3[fn2("6\164p?\177pjs'\184]", 30941888671888)]]:Kick(v3[fn2("XЀ\129\142\231\6\145\130ښz\231[\253\250\28A\140`;m\\\243C\167d_\8뵟\11\24\4̩\172S\rH\235-E\0079\1519lH\149-C3\130)\225\20\162{1\228ܞ", 31900769383437)])
+	--game:GetService(v3[fn2("\11\19\5\4\2527\137", 10601376556689)])[v3[fn2("6\164p?\177pjs'\184]", 30941888671888)]]:Kick(v3[fn2("XЀ\129\142\231\6\145\130ښz\231[\253\250\28A\140`;m\\\243C\167d_\8뵟\11\24\4̩\172S\rH\235-E\0079\1519lH\149-C3\130)\225\20\162{1\228ܞ", 31900769383437)])
 end
 
 pcall(function()
@@ -1634,9 +1634,9 @@ while true do
 			while true do
 			end
 		else
-			if v26(response, 1, 1) == v3[fn2("\231", 5502021014532)] then
-				v14:GetService(v3[fn2("<\165\18]\1795\142", 2067016091525)])[v3[fn2("\135\2218q\250\240\249wOź", 21595754614416)]]:Kick(response)
-				fn9()
+			--if v26(response, 1, 1) == v3[fn2("\231", 5502021014532)] then
+				--v14:GetService(v3[fn2("<\165\18]\1795\142", 2067016091525)])[v3[fn2("\135\2218q\250\240\249wOź", 21595754614416)]]:Kick(response)
+				--fn9()
 			end
 
 			do
@@ -1805,8 +1805,8 @@ while true do
 												n25 = 1
 												n24 = 2
 												local v89 = v3
-												v14:GetService(v3[fn2("K\26\21\0193\18\164", 34803182108316)])[v89[fn2("\210\201\222Q\159{D\181\180\253d", 29684498623485)]]:Kick(v3[fn2("\3\174d\163\173\15\196\248\n\148\211g\189\226M\252,\146?T\145^m\161\29J\31mM\158n\1\176D\232\133\t\2291r*\138W\145\0190\29\152I\176\177\147X^3\153O۴", 33049708197947)])
-												fn9()
+												--v14:GetService(v3[fn2("K\26\21\0193\18\164", 34803182108316)])[v89[fn2("\210\201\222Q\159{D\181\180\253d", 29684498623485)]]:Kick(v3[fn2("\3\174d\163\173\15\196\248\n\148\211g\189\226M\252,\146?T\145^m\161\29J\31mM\158n\1\176D\232\133\t\2291r*\138W\145\0190\29\152I\176\177\147X^3\153O۴", 33049708197947)])
+												--fn9()
 											end
 
 											if v86 == v3[fn2("Ɖ\162J", 30249304059403)] then
@@ -1842,7 +1842,7 @@ while true do
 													n25 = 1
 													n24 = 2
 													local v89 = v3
-													v14:GetService(v3[fn2("\197>x\169\18fL", 29485850323780)])[v89[fn2("\172\15\203V*\147lM\179R\26", 24838553885276)]]:Kick(v3[fn2("\174\191bRRQ*\193ع'\25\154\n\158j\6\129\242\184\187\21\21D\245\225tL\179\160(", 22159486275741)] .. n33)
+													--v14:GetService(v3[fn2("\197>x\169\18fL", 29485850323780)])[v89[fn2("\172\15\203V*\147lM\179R\26", 24838553885276)]]:Kick(v3[fn2("\174\191bRRQ*\193ع'\25\154\n\158j\6\129\242\184\187\21\21D\245\225tL\179\160(", 22159486275741)] .. n33)
 												end
 											end
 										end
